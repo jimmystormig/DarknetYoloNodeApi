@@ -23,9 +23,11 @@ FROM node:lts-slim as runtime
 WORKDIR /app
 
 RUN wget https://pjreddie.com/media/files/yolov3.weights
+RUN wget https://pjreddie.com/media/files/yolov3-tiny.weights
 
 COPY --from=build /darknet/darknet ./
 COPY --from=build /darknet/cfg/yolov3.cfg ./cfg/
+COPY --from=build /darknet/cfg/yolov3-tiny.cfg ./cfg/
 COPY --from=build /darknet/cfg/coco.data ./cfg/
 COPY --from=build /darknet/data/coco.names ./data/
 COPY --from=build /darknet/data/labels ./data/labels/

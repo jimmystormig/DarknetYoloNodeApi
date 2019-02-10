@@ -6,13 +6,25 @@ const port = 3002
 
 app.post('/predict', (req, res) => {
 
-  exec('./darknet detect cfg/yolov3.cfg yolov3.weights ' + req.query.image, (err, stdout, stderr) => {
+  let config = 'yolov3.cfg';
+  let weight = 'yolov3.weights';
+
+  if(req.query.tiny && req.query.tiny === 'true'){
+    config = 'yolov3-tiny.cfg';
+    weight = 'yolov3-tiny.weights';
+  }
+
+  exec('./darknet detect cfg/' + config + ' ' + weight + ' ' + req.query.image, (err, stdout, stderr) => {
 
     if (err) {
       console.log(`err: ${err}`);
       return;
     }
 
+    if(stderr){
+      console.log('stderr', stderr);
+    }
+    
     const lines = stdout.split(/\r?\n/);
     lines.shift();
     
