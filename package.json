@@ -1,0 +1,15 @@
+{
+  "name": "darknetyolonodeapi",
+  "version": "1.0.0",
+  "description": "Darknet Yolo object detection exposed as a Node Express api and packaged in Docker",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.16.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jimmy Stormig",
+  "license": "ISC"
+}
