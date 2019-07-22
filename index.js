@@ -50,7 +50,7 @@ app.post('/predict', (req, res) => {
     })
 
     exec('cp /app/predictions.jpg ' + req.query.predictimage, (err2, stdout2, stderr2) => {
-      if (err) {
+      if (err2) {
         console.log(`err: ${err2}`);
         return;
       }
