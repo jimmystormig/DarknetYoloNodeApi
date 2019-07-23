@@ -14,7 +14,7 @@ app.post('/predict', (req, res) => {
     weight = 'yolov3-tiny.weights';
   }
 
-  exec('./darknet detect cfg/' + config + ' ' + weight + ' ' + req.query.image, (err, stdout, stderr) => {
+  exec('./darknet detector test cfg/coco.data cfg/' + config + ' ' + weight + ' ' + req.query.image + ' -out_filename ' + req.query.predictimage + ' -dont_show', (err, stdout, stderr) => {
 
     if (err) {
       console.log(`err: ${err}`);
