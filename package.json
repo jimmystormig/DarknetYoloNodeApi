@@ -4,7 +4,7 @@
   "description": "Darknet Yolo object detection exposed as a Node Express api and packaged in Docker",
   "main": "index.js",
   "dependencies": {
-    "express": "^4.16.4"
+    "express": "^4.17.3"
   },
   "devDependencies": {},
   "scripts": {
